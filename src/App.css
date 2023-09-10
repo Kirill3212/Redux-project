@@ -80,6 +80,7 @@ button {
     color: #125688;
     transition: all 0.2s;
     box-sizing: padding-box;
+    cursor: pointer;
 }
 
 button hover {
