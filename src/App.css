@@ -61,6 +61,8 @@
 .card-title-top {
     display: flex;
     align-items: center;
+    border: 1px solid gainsboro;
+    padding-left: 10px;
 }
 
 .card-title-top p {
