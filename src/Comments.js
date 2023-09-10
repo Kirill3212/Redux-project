@@ -1,19 +1,27 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { commentCreate } from "./redux/actions";
+import uniqid from "uniqid";
 import SingleComment from "./SingleComment";
 
 const Comments = (props) => {
   const [textComment, setTextComment] = useState("");
-  //   console.log("comments props >>", props);
+  const comments = useSelector((state) => {
+    const { commentsReducer } = state;
+    return commentsReducer.comments;
+  });
+  const dispatch = useDispatch();
 
   const handleInput = (e) => {
-    console.log("input >>>>>", e.target.value);
     setTextComment(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("submit textComment", textComment);
+    const id = uniqid();
+    dispatch(commentCreate(textComment, id));
   };
 
   return (
@@ -28,7 +36,10 @@ const Comments = (props) => {
         ></input>
         <input type="submit" hidden></input>
       </form>
-      <SingleComment></SingleComment>
+      {!!comments.length &&
+        comments.map((res) => {
+          return <SingleComment key={res.id} data={res}></SingleComment>;
+        })}
     </div>
   );
 };
