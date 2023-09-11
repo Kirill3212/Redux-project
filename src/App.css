@@ -55,8 +55,10 @@
 }
 
 .comments-item-delete {
-    padding: 5px 15px 5px 5px;
+    padding: 5px 10px 5px 10px;
     cursor: pointer;
+    color: red;
+    font-weight: 600;
 }
 
 .button-controls {
