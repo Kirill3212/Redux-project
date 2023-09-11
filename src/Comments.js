@@ -19,7 +19,6 @@ const Comments = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit textComment", textComment);
     const id = uniqid();
     dispatch(commentCreate(textComment, id));
   };
@@ -28,7 +27,6 @@ const Comments = (props) => {
     dispatch(commentsLoad());
   }, []);
 
-  console.log("COMMENTS >>", comments);
   return (
     <div className="card-comments">
       <form onSubmit={handleSubmit} className="comments-item-create">

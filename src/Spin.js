@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const Spin = () => {
   const spinner = useSelector((state) => state.appReducer.loading);
-  console.log("spinner", spinner);
   return (
     <div className="loader-styles">
       <ColorRing

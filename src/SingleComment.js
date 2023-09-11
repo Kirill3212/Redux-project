@@ -20,7 +20,6 @@ const SingleComment = ({ data }) => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    console.log("submit >>>", commentText);
     dispatch(commentUpdate(commentText, id));
   };
 
